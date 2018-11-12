@@ -16,6 +16,7 @@ public class DriverFactory {
     public static AndroidDriver<MobileElement> getDriver() {
         if (driver == null) {
             createDriver();
+//            createTestObjectDriver();
         }
         return driver;
     }
@@ -30,6 +31,22 @@ public class DriverFactory {
 
         try {
             driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), desiredCapabilities);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+    }
+
+    private static void createTestObjectDriver() {
+        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+        desiredCapabilities.setCapability("platformName", "Android");
+        desiredCapabilities.setCapability("testobject_api_key", "6A2D1EAA76DE466D8EC9319F59E48686");
+        desiredCapabilities.setCapability("automationName", "uiautomator2");
+        desiredCapabilities.setCapability("appiumVersion", "1.9.1");
+
+        try {
+            driver = new AndroidDriver<>(new URL("https://us1.appium.testobject.com/wd/hub"), desiredCapabilities);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

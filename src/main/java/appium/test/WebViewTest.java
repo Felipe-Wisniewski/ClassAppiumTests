@@ -14,7 +14,7 @@ public class WebViewTest extends BaseTest {
     public void deveFazerLogin() {
         menu.accessSeuBarrigaHibrido();
         waitToLoad(4500);
-        page.setWebContex();
+//        page.setWebContex();
 
         //preencher email
         page.enterEmail("felipe@wisniewski");
@@ -26,6 +26,7 @@ public class WebViewTest extends BaseTest {
         page.clickLoginButton();
 
         //verificar msg de sucesso
-
+//        waitToLoad(2500);
+//        Assert.assertEquals("Bem vindo, felipe!", page.confirmLogin());
     }
 }

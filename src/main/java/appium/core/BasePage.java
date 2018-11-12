@@ -108,8 +108,8 @@ public class BasePage {
         scroll(0.9, 0.1);
     }
 
-    protected void tapScrollUp() {
-        scroll(0.1, 0.9);
+    protected void tapScroll(double start, double end) {
+        scroll(start, end);
     }
 
     private void scroll(double start, double end) {

@@ -40,6 +40,9 @@ public class SamplesTest {
             e.printStackTrace();
         }
 
+        driver.findElementByXPath("//android.widget.EditText[@content-desc=\"Email\"]").click();
+        driver.findElementByXPath("//android.widget.EditText[@content-desc=\"Email\"]").sendKeys("Felipe");
+
         Set<String> contextHandles = driver.getContextHandles();
         System.out.println(contextHandles);
         if (contextHandles.size() > 1)
